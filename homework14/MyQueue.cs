@@ -10,105 +10,88 @@ namespace homework14
     {
         public static void Queue()
         {
-            int n = 5; //buffer size
-            int count = 0;
-            int tail = 0;
+            int size = 5;
+            int[] myarr = new int[size];
             int head = 0;
-            int numberOFitarations = 1000000;
-            int[] myarr = new int[n];
-            //bool isEmpty = false;
+            int tail = 0;
+            int count = 0;
+            int numberOfIterations = 100000000;
+            
             Random rand = new Random();
-            for (int iteration = 0; iteration < numberOFitarations; iteration++)
+
+            for (int iterations = 0; iterations < numberOfIterations; iterations++)
             {
-                while (!IsFull(count, n)) //Empty
+
+                int NewValue = rand.Next(100);
+                if (NewValue % 2 == 0)
                 {
-                        int element = rand.Next(100);
-                        if (element % 2 == 0)
+                    if (IsFull(count, size))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        if (tail == size)
                         {
-                            Enqueue(myarr, element, count);
-                            count++;
-                            head++;
+                            tail = 0;
                         }
-                        else
-                        {
-                            if (IsEmpty(count))
-                            {
-                                continue;
-                            }
-                            else
-                            {
-                                Dequeue(myarr, (count - 1));
-                                count--;
-                                tail++;
-                            }
-                        }
-                        iteration++;
+                        Enqueue(myarr, tail, NewValue);
+                        tail++;
+                        count++;
+                    }
                 }
 
-                while ((iteration >= n) && (iteration < numberOFitarations)) //Full
+                else
                 {
-                        int element = rand.Next(100);
-                        if (IsFull(count, n))
+                    if (IsEmpty(count))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        if (head == size)
                         {
-                            count = 0;
+                            head = 0;
                         }
-
-                        if (element % 2 == 0)
-                        {
-                            Enqueue(myarr, element, count);
-                            count++;
-                        }
-                        else
-                        {
-                            if (IsEmpty(count))
-                            {
-                                continue;
-                            }
-                            else
-                            {
-                                Dequeue(myarr, (count - 1));
-                                count--;
-                            }
-                        }
-                        iteration++;
+                        Dequeue(myarr, head, size);
+                        head++;
+                        count--;
+                    }
                 }
             }
         }
 
-        //put element in queue
-        static void Enqueue(int[] Enq, int b, int i)
+        static void Enqueue(int[] arrayFORenqueue, int tail, int Value)
         {
-            Enq[i] = b;
+            arrayFORenqueue[tail] = Value;
         }
 
-        //get element from queue(through out parameter, true if element got from queue, false otherwise)
-        static void Dequeue(int[] Deq, int i)
+        static void Dequeue(int[] arrayFORdequeue, int b, int size)
         {
-            Deq[i] = 0;
+            if (b == size)
+            {
+                b = 0;
+            }
+            arrayFORdequeue[b] = 0;
         }
 
-        static bool IsEmpty(int a)
+        static bool IsEmpty(int count)
         {
-            if (a == 0)
+
+            if (count == 0)
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
-        static bool IsFull(int a, int b)
+        static bool IsFull(int count, int size)
         {
-            if (a == b)
+            if (count == size)
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }

@@ -16,7 +16,7 @@ namespace homework14
             Random rand = new Random();
             Stack defStack = new Stack(size);
 
-            for (int i = 0; i < 1000000; i++)
+            for (int i = 0; i < 100000000; i++)
             {
                 int element = rand.Next(100);
                 if (element % 2 == 0)

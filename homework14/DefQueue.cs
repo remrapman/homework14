@@ -12,95 +12,62 @@ namespace homework14
 
         public static void Queue()
         {
-            int n = 5; //buffer size
+            int size = 5;
             int count = 0;
-            int numberOFitarations = 1000000;
+            int numberOfIterations = 100000000;
 
             Random rand = new Random();
-            Queue defQueue = new Queue(n);
+            Queue defQueue = new Queue(size);
 
-            for (int iteration = 0; iteration < numberOFitarations; iteration++)
+            for (int iterations = 0; iterations < numberOfIterations; iterations++)
             {
 
-                while (!IsFull(count, n)) //Empty
+                int NewValue = rand.Next(100);
+                if (NewValue % 2 == 0)
                 {
-
-                        int element = rand.Next(100);
-                        if (element % 2 == 0)
-                        {
-                            defQueue.Enqueue(element);
-                            count++;
-                        }
-                        else
-                        {
-                            if (IsEmpty(count))
-                            {
-                                continue;
-                            }
-                            else
-                            {
-                                defQueue.Dequeue();
-                                count--;
-                            }
-                        }
-                        iteration++;
-
+                    if (IsFull(count, size))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        defQueue.Enqueue(NewValue);
+                        count++;
+                    }
                 }
 
-                while (IsFull(count, n) && (iteration < numberOFitarations)) //Full
+                else
                 {
-                    for (int i = n; i < numberOFitarations; i++)
+                    if (IsEmpty(count))
                     {
-                        int element = rand.Next(100);
-                        if (IsFull(count, n))
-                        {
-                            count = 0;
-                        }
-
-                        if (element % 2 == 0)
-                        {
-                            defQueue.Enqueue(element);
-                        }
-                        else
-                        {
-                            if (IsEmpty(count))
-                            {
-                                continue;
-                            }
-                            else
-                            {
-                                defQueue.Dequeue();
-                            }
-                        }
-                        iteration++;
-                        count++;
+                        continue;
+                    }
+                    else
+                    {
+                        defQueue.Dequeue();
+                        count--;
                     }
                 }
             }
         }
 
-        static bool IsEmpty(int a)
+        static bool IsEmpty(int count)
         {
-            if (a == 0)
+
+            if (count == 0)
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
-        static bool IsFull(int a, int b)
+        static bool IsFull(int count, int size)
         {
-            if (a == b)
+            if (count == size)
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }
