@@ -39,5 +39,23 @@ namespace homework14
             var elapsedTime = watch.ElapsedMilliseconds;
             MessageBox.Show("Elapsed time is " + elapsedTime + " miliseconds");
         }
+
+        private void MyQueueButton_Click(object sender, EventArgs e)
+        {
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            MyQueue.Queue();
+            watch.Stop();
+            var elapsedTime = watch.ElapsedMilliseconds;
+            MessageBox.Show("Elapsed time is " + elapsedTime + " miliseconds");
+        }
+
+        private void DefaultQueueButton_Click(object sender, EventArgs e)
+        {
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+            DefQueue.Queue();
+            watch.Stop();
+            var elapsedTime = watch.ElapsedMilliseconds;
+            MessageBox.Show("Elapsed time is " + elapsedTime + " miliseconds");
+        }
     }
 }
