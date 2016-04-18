@@ -17,14 +17,14 @@ namespace homework14
             int top = 0;
             Random rand = new Random();
 
-            for (int i = 0; i < 10000; i++)
+            for (int i = 0; i < 1000000; i++)
             {
                 int element = rand.Next(100);
                 if (element % 2 == 0)
                 {
                     if (IsFull(top, size) == true)
                     {
-                        return;
+                        continue;
                     }
                     else
                     {
@@ -37,7 +37,7 @@ namespace homework14
                 {
                     if (IsEmpty(top) == true)
                     {
-                        return;
+                        continue;
                     }
                     else
                     {

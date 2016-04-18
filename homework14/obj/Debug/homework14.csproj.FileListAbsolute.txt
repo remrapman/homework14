@@ -7,3 +7,12 @@ c:\users\rem\documents\visual studio 2013\Projects\homework14\homework14\obj\Deb
 c:\users\rem\documents\visual studio 2013\Projects\homework14\homework14\obj\Debug\homework14.csproj.GenerateResource.Cache
 c:\users\rem\documents\visual studio 2013\Projects\homework14\homework14\obj\Debug\homework14.exe
 c:\users\rem\documents\visual studio 2013\Projects\homework14\homework14\obj\Debug\homework14.pdb
+D:\VS_projects\homework14\homework14\bin\Debug\homework14.exe.config
+D:\VS_projects\homework14\homework14\obj\Debug\homework14.exe
+D:\VS_projects\homework14\homework14\obj\Debug\homework14.pdb
+D:\VS_projects\homework14\homework14\bin\Debug\homework14.exe
+D:\VS_projects\homework14\homework14\bin\Debug\homework14.pdb
+D:\VS_projects\homework14\homework14\obj\Debug\homework14.csprojResolveAssemblyReference.cache
+D:\VS_projects\homework14\homework14\obj\Debug\homework14.Form1.resources
+D:\VS_projects\homework14\homework14\obj\Debug\homework14.Properties.Resources.resources
+D:\VS_projects\homework14\homework14\obj\Debug\homework14.csproj.GenerateResource.Cache
